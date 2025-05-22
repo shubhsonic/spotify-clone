@@ -26,7 +26,7 @@ export const initializeSocket = (server) => {
 		});
 
 		socket.on("update_activity", ({ userId, activity }) => {
-			console.log("activity updated", userId, activity);
+			// console.log("activity updated", userId, activity);
 			userActivities.set(userId, activity);
 			io.emit("activity_updated", { userId, activity });
 		});
@@ -49,7 +49,7 @@ export const initializeSocket = (server) => {
 
 				socket.emit("message_sent", message);
 			} catch (error) {
-				console.error("Message error:", error);
+				// console.error("Message error:", error);
 				socket.emit("message_error", error.message);
 			}
 		});
